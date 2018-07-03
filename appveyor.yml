@@ -85,6 +85,9 @@ install:
   # Get needed submodules
   - git submodule update --init
 
+  # Build in MPL directory
+  - cd matplotlib
+
   # Let the install prefer the static builds of the libs
   - set LIBRARY_LIB=%CONDA_PREFIX%\Library\lib
   - mkdir lib || cmd /c "exit /b 0"
@@ -96,7 +99,6 @@ install:
   - del %LIBRARY_LIB%\png.lib
   - del %LIBRARY_LIB%\z.lib
   - set MPLBASEDIRLIST=%CONDA_PREFIX%\Library\;.
-  - cd matplotlib
   # enables the local freetype build
   - set MPLLOCALFREETYPE=1
   # Show the installed packages + versions
