@@ -56,7 +56,7 @@ install:
   - set PYTHONUNBUFFERED=1
   # for msinttypes and newer stuff
   - conda config --set always_yes true
-  - conda update --all
+  # - conda update --all
   - conda config --set show_channel_urls yes
   - conda config --prepend channels conda-forge
   # this is now the downloaded conda...
@@ -69,8 +69,9 @@ install:
   #
   - conda create -c anaconda -q -n test-environment python=%PYTHON_VERSION%
     msinttypes freetype=2.6 "libpng>=1.6.21,<1.7" zlib=1.2 tk=8.5
-    pip setuptools numpy mock pandas sphinx tornado
+    pip setuptools
   - activate test-environment
+  - pip install numpy mock tornado
   - echo %PYTHON_VERSION% %TARGET_ARCH%
   # pytest-cov>=2.3.1 due to https://github.com/pytest-dev/pytest-cov/issues/124
   - pip install -q "pytest!=3.3.0,>=3.2.0" "pytest-cov>=2.3.1" pytest-rerunfailures pytest-timeout pytest-xdist
@@ -112,6 +113,9 @@ test_script:
   - '"%DUMPBIN%" /DEPENDENTS lib\matplotlib\ft2font*.pyd | findstr freetype.*.dll && exit /b 1 || exit /b 0'
   - '"%DUMPBIN%" /DEPENDENTS lib\matplotlib\_png*.pyd | findstr z.*.dll && exit /b 1 || exit /b 0'
   - '"%DUMPBIN%" /DEPENDENTS lib\matplotlib\_png*.pyd | findstr png.*.dll && exit /b 1 || exit /b 0'
+
+  # Test dependencies
+  - pip install pandas sphinx tornado
 
   # this are optional dependencies so that we don't skip so many tests...
   - if x%TEST_ALL% == xyes conda install -q ffmpeg inkscape miktex pillow
