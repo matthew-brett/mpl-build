@@ -18,11 +18,9 @@ environment:
     - PYTHON_VERSION: "3.7"
       CONDA_INSTALL_LOCN: "C:\\Miniconda36-x64"
       TEST_ALL: "no"
-      PYTHON_ARCH: 32
     - PYTHON_VERSION: "3.7"
-      CONDA_INSTALL_LOCN: "C:\\Miniconda36-x64"
+      CONDA_INSTALL_LOCN: "C:\\Miniconda36"
       TEST_ALL: "no"
-      PYTHON_ARCH: 64
     - PYTHON_VERSION: "2.7"
       CONDA_INSTALL_LOCN: "C:\\Miniconda-x64"
       TEST_ALL: "no"
