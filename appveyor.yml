@@ -16,11 +16,11 @@ environment:
     # one for 64bit because we construct envs anyway. But using one for the
     # right python version is hopefully making it fast due to package caching.
     - PYTHON_VERSION: "3.7"
-      CONDA_INSTALL_LOCN: "C:\\Miniconda37-x64"
+      CONDA_INSTALL_LOCN: "C:\\Miniconda36-x64"
       TEST_ALL: "no"
       PYTHON_ARCH: 32
     - PYTHON_VERSION: "3.7"
-      CONDA_INSTALL_LOCN: "C:\\Miniconda37-x64"
+      CONDA_INSTALL_LOCN: "C:\\Miniconda36-x64"
       TEST_ALL: "no"
       PYTHON_ARCH: 64
     - PYTHON_VERSION: "2.7"
