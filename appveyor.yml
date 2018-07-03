@@ -16,11 +16,11 @@ environment:
     # one for 64bit because we construct envs anyway. But using one for the
     # right python version is hopefully making it fast due to package caching.
     - PYTHON_VERSION: "3.7"
-      CONDA_INSTALL_LOCN: "C:\\Miniconda36-x64"
+      CONDA_INSTALL_LOCN: "C:\\Miniconda37-x64"
       TEST_ALL: "no"
       PYTHON_ARCH: 32
     - PYTHON_VERSION: "3.7"
-      CONDA_INSTALL_LOCN: "C:\\Miniconda36-x64"
+      CONDA_INSTALL_LOCN: "C:\\Miniconda37-x64"
       TEST_ALL: "no"
       PYTHON_ARCH: 64
     - PYTHON_VERSION: "2.7"
@@ -67,7 +67,7 @@ install:
   # if conda-forge gets a new pyqt, it might be nice to install it as well to have more backends
   # https://github.com/conda-forge/conda-forge.github.io/issues/157#issuecomment-223536381
   #
-  - conda create -q -n test-environment python=%PYTHON_VERSION%
+  - conda create -c anaconda -q -n test-environment python=%PYTHON_VERSION%
     msinttypes freetype=2.6 "libpng>=1.6.21,<1.7" zlib=1.2 tk=8.5
     pip setuptools numpy mock pandas sphinx tornado
   - activate test-environment
