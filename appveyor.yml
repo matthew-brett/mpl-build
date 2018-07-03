@@ -98,7 +98,7 @@ install:
   - set MPLBASEDIRLIST=%CONDA_PREFIX%\Library\;.
   - cd matplotlib
   # enables the local freetype build
-  - copy ci\travis\setup.cfg .
+  - set MPLLOCALFREETYPE=1
   # Show the installed packages + versions
   - conda list
 
